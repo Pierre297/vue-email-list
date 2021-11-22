@@ -13,8 +13,8 @@ var app = new Vue({
         .get("https://flynn.boolean.careers/exercises/api/random/mail")
         .then(function (lista) {
           self.email = lista.data.response;
-          self.email.push(emailList);
-          console.log(emailList);
+          self.emailList.push(self.email);
+          //   console.log(self.emailList);
         });
     }
   },
