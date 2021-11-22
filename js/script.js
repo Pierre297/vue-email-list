@@ -1,15 +1,21 @@
 var app = new Vue({
   el: "#app",
   data: {
-    email: "stringa",
+    email: "",
+    emailList: [],
   },
   //hook
   mounted() {
-    // chiamata ajax alla API
-    axios
-      .get("https://flynn.boolean.careers/exercises/api/random/mail")
-      .then(function (lista) {
-        console.log(lista.data);
-      });
+    const self = this;
+    for (i = 0; i < 10; i++) {
+      // chiamata ajax alla API
+      axios
+        .get("https://flynn.boolean.careers/exercises/api/random/mail")
+        .then(function (lista) {
+          self.email = lista.data.response;
+          self.email.push(emailList);
+          console.log(emailList);
+        });
+    }
   },
 });
